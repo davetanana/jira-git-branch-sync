@@ -14,7 +14,7 @@ def github_create(repo, org, github_pat,user, extra_identifier, jira_info) -> st
                 Exception(ValueError("No master branch"))
         master_branch_sha = master_branch.commit.sha
         user_name = user.login
-        branch_name = f'{user_name}/{jira_info[0]['issue_id']}_{jira_info[0]}'
+        branch_name = f"{user_name}/{jira_info[0]['issue_id']}_{jira_info[0]}"
         git_ref = repository.create_git_ref(ref=f'refs/heads/{branch_name}', sha=master_branch_sha)
         return git_ref
     except:
