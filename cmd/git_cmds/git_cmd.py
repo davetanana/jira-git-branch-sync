@@ -16,7 +16,8 @@ def github_create(repo, org, github_pat,user, extra_identifier, jira_info) -> st
         user_name = user.login
         branch_name = f"{user_name}/{jira_info[0]['issue_id']}_{jira_info[0]}"
         git_ref = repository.create_git_ref(ref=f'refs/heads/{branch_name}', sha=master_branch_sha)
-        return git_ref
+        
     except:
-        GithubException(message="Error with creating ref: ")
-    pass
+        raise GithubException(message='Error with creating ref:' )
+    finally:
+        return git_ref
