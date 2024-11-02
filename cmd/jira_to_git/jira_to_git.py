@@ -38,3 +38,7 @@ def main(project,title,jira_url,jira_token,repos,github_pat,org,extra_identifier
         git_cmd.github_create(repo, org, github_pat, extra_identifier, jira_ticket_info)
         pass
     pass
+
+
+if __name__ == "__main__":
+    
